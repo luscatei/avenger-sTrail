@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/drive-download-20250507T203531Z-001/sprite_sheet.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 2804, 658, 413, 604 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "andando"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 1128, 1375, 467, 631 ), Rect2( 1633, 1368, 540, 655 ), Rect2( 2247, 1361, 416, 602 ), Rect2( 2732, 1355, 450, 599 ), Rect2( 51, 2126, 478, 631 ), Rect2( 1627, 2066, 568, 641 ), Rect2( 2255, 2069, 442, 623 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "atacando"
+
+[sub_resource type="Animation" id=4]
+resource_name = "parada"
+loop = true
+step = 0.33
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.33, 0.66 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 2804, 658, 413, 604 ), Rect2( 32, 1372, 453, 633 ), Rect2( 582, 1375, 417, 621 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "pulando"
+length = 0.75
+step = 0.24
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.24, 0.48, 0.72 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 615, 2097, 419, 596 ), Rect2( 615, 2097, 419, 596 ), Rect2( 1082, 2067, 502, 641 ), Rect2( 1082, 2067, 502, 641 ) ]
+}
+
+[node name="personagem" type="Node2D"]
+
+[node name="personagem" type="KinematicBody2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="personagem"]
+autoplay = "parada"
+reset_on_save = false
+anims/RESET = SubResource( 1 )
+anims/andando = SubResource( 2 )
+anims/atacando = SubResource( 3 )
+anims/parada = SubResource( 4 )
+anims/pulando = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="personagem"]
+
+[node name="Sprite" type="Sprite" parent="personagem"]
+position = Vector2( 46, 30 )
+scale = Vector2( 0.0479087, 0.040245 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1082, 2067, 502, 641 )
