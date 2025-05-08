@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sprites/drive-download-20250507T203531Z-001/sprite_sheet.png" type="Texture" id=1]
 
@@ -35,6 +35,20 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "atacando"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 2290, 681, 455, 591 ), Rect2( 1801, 690, 403, 596 ), Rect2( 1398, 720, 350, 583 ), Rect2( 785, 706, 461, 592 ), Rect2( 31, 762, 655, 543 ), Rect2( 2743, 50, 584, 520 ), Rect2( 2252, 64, 467, 510 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "parada"
@@ -56,6 +70,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "pulando"
 length = 0.75
+loop = true
 step = 0.24
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:region_rect")
@@ -67,10 +82,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.24, 0.48, 0.72 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 615, 2097, 419, 596 ), Rect2( 615, 2097, 419, 596 ), Rect2( 1082, 2067, 502, 641 ), Rect2( 1082, 2067, 502, 641 ) ]
+"values": [ Rect2( 52, 136, 468, 568 ), Rect2( 650, 21, 406, 610 ), Rect2( 1144, 16, 356, 618 ), Rect2( 52, 136, 468, 568 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 69, 100 )
+
 [node name="personagem" type="Node2D"]
+position = Vector2( 463, 345 )
 
 [node name="personagem" type="KinematicBody2D" parent="."]
 
@@ -84,10 +103,12 @@ anims/parada = SubResource( 4 )
 anims/pulando = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="personagem"]
+position = Vector2( -20, 8 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="personagem"]
-position = Vector2( 46, 30 )
-scale = Vector2( 0.0479087, 0.040245 )
+position = Vector2( 2, 1 )
+scale = Vector2( 0.423983, 0.348653 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 1082, 2067, 502, 641 )
+region_rect = Rect2( 2255, 2069, 442, 623 )

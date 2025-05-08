@@ -10,8 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Avenger's Trail"
-run/main_scene="res://cena_fase.tscn"
+config/name="maga mapa"
 config/icon="res://icon.png"
 
 [gui]
@@ -24,5 +23,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"
