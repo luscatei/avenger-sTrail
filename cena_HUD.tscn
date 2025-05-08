@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://flecha_hud.png" type="Texture" id=1]
+
+[node name="HUD" type="Node2D"]
+position = Vector2( 37, 37 )
+
+[node name="VIDAS" type="Sprite" parent="."]
+scale = Vector2( 0.352201, 0.375839 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 57, 61, 159, 149 )
+
+[node name="MAGIAS" type="Sprite" parent="."]
+
+[node name="LabelVIDAS" type="Label" parent="."]
+margin_left = 24.0
+margin_top = -17.0
+margin_right = 49.0
+margin_bottom = -1.0
+rect_scale = Vector2( 3, 3 )
+size_flags_stretch_ratio = 2.29
+text = "3X"
+align = 1
+valign = 1
+
+[node name="LabelMAGIAS" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="PAUSE" type="Node2D" parent="."]

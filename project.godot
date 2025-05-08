@@ -11,7 +11,6 @@ config_version=4
 [application]
 
 config/name="Avenger's Trail"
-run/main_scene="res://cena_fase.tscn"
 config/icon="res://icon.png"
 
 [gui]
